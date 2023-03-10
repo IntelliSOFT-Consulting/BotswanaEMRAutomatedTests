@@ -33,7 +33,7 @@ describe("Registration page", () => {
     );
   });
 
-  it.skip(`TEST 2-Verifying visibility of the page objects`, () => {
+  it(`TEST 2-Verifying visibility of the page objects`, () => {
     //applitools eyes test
     cy.eyesCheckWindow({
       tag: "TP01-Verifying visibility of the elements on the page",
@@ -42,7 +42,7 @@ describe("Registration page", () => {
     });
   });
 
-  it.skip(`TEST 3-Verifying successful registration of emergency patients`, () => {
+  it(`TEST 3-Verifying successful registration of emergency patients`, () => {
     cy.contains("button", "Register New Patient").click();
 
     cy.get('#find-patients').type("Jane Doe{enter}").should("have.value", "Jane Doe");

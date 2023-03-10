@@ -12,6 +12,7 @@ describe("Consultation page", () => {
             testName:
                 "Verify that all the labels and controls including text-boxes, buttons, and links are present on the Login page and can be interacted with",
         });
+
     });
 
     afterEach(() => {
@@ -26,10 +27,11 @@ describe("Consultation page", () => {
         cy.contains('Consultation').click()
         cy.url().should("contain", "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/consultation/doctorsPatientPoolDashboard.page?appId=botswanaemr.auxilliaryNurseDashboard");
 
-        cy.get('[data-dt-idx="3"]').click();
+        // cy.lighthouse();
+        // cy.get('[data-dt-idx="3"]').click(); // In case the list exceeds the page
 
 
-        cy.contains('td', familyname+ ' ' + firstname)  // gives you the cell 
+        cy.contains('td', familyname + ' ' + firstname)  // gives you the cell 
             .siblings()                            // gives you all the other cells in the row
             .contains('a', 'Treat')               // finds the delete button
             .click()
@@ -101,32 +103,74 @@ describe("Consultation page", () => {
         cy.get('#newDiet > :nth-child(1) > input').type('High protein diet');
         cy.get('#newDiet > :nth-child(2) > input').type('3 times a day');
         cy.get('#newDiet > :nth-child(3) > input').type('Patient prefers food high in protein');
-        cy.get('#editDiets > .button-section-right > .btn-primary').click();
+        cy.get('#editDiets > .button-section-right > .btn-primary').click({ force: true });
+
 
         // cy.contains('High protein diet').should('be.visible', {force: true}); // Check if the added diet is visible
 
+        cy.wait(3000)
 
         //! OBJECTIVE TAB
 
-        cy.get('#objective-tab').click();
+        cy.get('#objective-tab').click({ force: true });
+
+        //Vitals
+
+        cy.wait(3000)
+        // Physical Exam
+        cy.get('#btnPhysicalExam').click();
+        cy.get('#physical-exam').type('Patient is in good health');
+        cy.get('#btnAddPhysicalExam').click();
+
+        cy.wait(3000)
+        //Lab Order
+        cy.get('#btnTest').click();
+        cy.get('#labOrder').type('Blood').wait(2000).type('{downarrow}').click();;
+        cy.get('#addLabOrderBtn').click();
+
+        //Additional notes
+        cy.get('#btnAdditionalNotes').click();
+        cy.get('#additionalNotes').type('Patient is in good health');
+        cy.get('#additionalNotesForm > .modal-footer > .btn-primary').click();
 
 
 
 
+
+
+        //! ASSESSMENT TAB
 
         cy.get('#assessment-tab').click();
-        cy.contains('+ Add diagnosis').click()
+
+        //Nursing Diagnosis
+        cy.get('#btnNursingDiagnosis').click();
+        cy.get('#nursingDiagnosis');
+        cy.get('#nursingDiagnosisForm > .modal-footer > .btn-primary').click();
+
+        //Diagnosis
+        cy.get(':nth-child(4) > .dashed-button').click();
+        cy.get('#btnAddDiagnosis').click();
+        cy.get('#newDiagnosis > :nth-child(1) > .form-control').type('Malaria').wait(2000).type('{downarrow}').click();
+        cy.get('#newDiagnosis > :nth-child(2) > .custom-select').select('Confirmed');
+        cy.get('#newDiagnosis > :nth-child(3) > #diagnosisTypetype').select('New');
+        cy.get('#editDiagnoses > .button-section-right > .btn-primary').click();
+
+        //Additional notes
+        cy.get('#btnAssessmentAdditionalNotes').click();
+        cy.get('#assessmentAdditionalNotes').type('Patient is in good health');
+        cy.get('#assessmentAdditionalNotesForm > .modal-footer > .btn-primary').click();
+
 
         cy.get('#btnAddDiagnosis').click();
 
         cy.get('#newDiagnosis > :nth-child(1) > .form-control').type('Malaria');
         cy.get('#newDiagnosis > :nth-child(2) > .custom-select').select('Confirmed');
         cy.get('#newDiagnosis > :nth-child(3) > #diagnosisTypetype').select('New');
-        cy.get('#editDiagnoses > .button-section-right > .btn-primary').click({multiple: true});   
+        cy.get('#editDiagnoses > .button-section-right > .btn-primary').click({ multiple: true });
 
-        cy.lighthouse();
+        // cy.lighthouse();
 
-        
+
 
     })
 

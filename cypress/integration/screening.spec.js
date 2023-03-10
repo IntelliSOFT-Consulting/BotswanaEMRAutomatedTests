@@ -28,11 +28,12 @@ describe("Screening page", () => {
     it(`TEST 1-Access screening module`, () => {
 
         cy.get('#selected-location').click();
-        cy.get('[locationid="9"]').click()
+        cy.get('#sidebarCollapse > .fa').click();
+        cy.get('[locationid="9"]').click({force: true})
         cy.url().should("contain", "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/consultation/auxilliaryNurseDashboard.page?appId=botswanaemr.auxilliaryNurseDashboard");
 
 
-        cy.get('[data-dt-idx="3"]').click();
+        // cy.get('[data-dt-idx="3"]').click(); // In case the list exceeds the page
 
         cy.wait(2000);
 
