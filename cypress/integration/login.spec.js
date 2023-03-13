@@ -8,7 +8,7 @@ describe(`The user is able to see the labels and controls including text-boxes, 
     cy.eyesOpen({
       appName: "Login Page",
       testName:
-        "Verify that all the labels and controls including text-boxes, buttons, and links are present on the Login page and can be interacted with",
+        "Verify that all the labels and controls  are present and can be interacted with",
     });
   });
 
@@ -55,7 +55,8 @@ describe(`The user can interact with the UI via varius actions (positive/negativ
 
   //********tests-cases*********
 
-  it(`LP05-Verify that as soon as the login page opens, by default the cursor should remain on the username textbox.`, () => {
+  it(`LP05.`, () => {
+    //Verify that as soon as the login page opens, by default the cursor should remain on the username textbox
     cy.focused().should("have.id", "username");
   });
 
@@ -77,7 +78,7 @@ describe(`The user can interact with the UI via varius actions (positive/negativ
 
   it(`LP09-Verify that the user is able to login by entering valid credentials and clicking on the ‘Login’ button.`, () => {
     enterLoginDetails("admin", "Y3z44AH2");
- 
+
 
     cy.contains("button", "Sign in").click();
 
@@ -86,7 +87,7 @@ describe(`The user can interact with the UI via varius actions (positive/negativ
 
   it(`LP10-Verify that the user is able to login by entering valid credentials and pressing Enter key.`, () => {
     enterLoginDetails("admin", "Y3z44AH2");
-    
+
 
     cy.focused().type("{enter}");
 
@@ -130,7 +131,7 @@ function enterLoginDetails(username, thePassword) {
   //have to do this check as .type does not take empty strings
   if (!username == "") {
     cy.get("#username").type(username).should("have.value", username);
-  }z
+  }
 
   if (!thePassword == "") {
     cy.get("#password").type(thePassword).should("have.value", thePassword);

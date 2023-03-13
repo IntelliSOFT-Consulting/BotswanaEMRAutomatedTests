@@ -103,7 +103,7 @@ describe("Consultation page", () => {
         cy.get('#newDiet > :nth-child(1) > input').type('High protein diet');
         cy.get('#newDiet > :nth-child(2) > input').type('3 times a day');
         cy.get('#newDiet > :nth-child(3) > input').type('Patient prefers food high in protein');
-        cy.get('#editDiets > .button-section-right > .btn-primary').click({ force: true });
+        cy.get('#editDiets > .button-section-right > .btn-primary').click();
 
 
         // cy.contains('High protein diet').should('be.visible', {force: true}); // Check if the added diet is visible
@@ -112,23 +112,28 @@ describe("Consultation page", () => {
 
         //! OBJECTIVE TAB
 
-        cy.get('#objective-tab').click({ force: true });
+        cy.get('#objective-tab').click();
 
         //Vitals
 
         cy.wait(3000)
         // Physical Exam
+
+        cy.get('#btnPhysicalExam').scrollIntoView({ easing: 'linear' })
         cy.get('#btnPhysicalExam').click();
         cy.get('#physical-exam').type('Patient is in good health');
         cy.get('#btnAddPhysicalExam').click();
 
-        cy.wait(3000)
+        cy.wait(5000)
         //Lab Order
+        // cy.get('#btnTest').scrollIntoView()
         cy.get('#btnTest').click();
         cy.get('#labOrder').type('Blood').wait(2000).type('{downarrow}').click();;
         cy.get('#addLabOrderBtn').click();
 
+        cy.wait(10000)
         //Additional notes
+        cy.get('#btnAdditionalNotes').scrollIntoView()
         cy.get('#btnAdditionalNotes').click();
         cy.get('#additionalNotes').type('Patient is in good health');
         cy.get('#additionalNotesForm > .modal-footer > .btn-primary').click();
@@ -144,10 +149,13 @@ describe("Consultation page", () => {
 
         //Nursing Diagnosis
         cy.get('#btnNursingDiagnosis').click();
-        cy.get('#nursingDiagnosis');
+        cy.wait(2000)
+        cy.get('#nursingDiagnosis').type('Malaria');
+        cy.wait(2000)
         cy.get('#nursingDiagnosisForm > .modal-footer > .btn-primary').click();
 
         //Diagnosis
+        cy.get('#assessment-tab').click();
         cy.get(':nth-child(4) > .dashed-button').click();
         cy.get('#btnAddDiagnosis').click();
         cy.get('#newDiagnosis > :nth-child(1) > .form-control').type('Malaria').wait(2000).type('{downarrow}').click();
@@ -156,6 +164,7 @@ describe("Consultation page", () => {
         cy.get('#editDiagnoses > .button-section-right > .btn-primary').click();
 
         //Additional notes
+        cy.get('#assessment-tab').click();
         cy.get('#btnAssessmentAdditionalNotes').click();
         cy.get('#assessmentAdditionalNotes').type('Patient is in good health');
         cy.get('#assessmentAdditionalNotesForm > .modal-footer > .btn-primary').click();

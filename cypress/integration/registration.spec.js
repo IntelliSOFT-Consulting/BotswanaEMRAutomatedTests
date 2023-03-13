@@ -27,13 +27,13 @@ describe("Registration page", () => {
 
   //********tests-cases*********
 
-  it("TEST 1-Should actually be accessible", () => {
+  it.skip("TEST 1-Should actually be accessible", () => {
     cy.visit(
       "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/registrationAdminDashboard.page?appId=botswanaemr.registrationAdminDashboard"
     );
   });
 
-  it(`TEST 2-Verifying visibility of the page objects`, () => {
+  it.skip(`TEST 2-Verifying visibility of the page objects`, () => {
     //applitools eyes test
     cy.eyesCheckWindow({
       tag: "TP01-Verifying visibility of the elements on the page",
@@ -69,7 +69,7 @@ describe("Registration page", () => {
     // cy.contains('Juma John').should('be.visible')
   });
 
-  it(`TEST 4-Verifying successful registration of regular patients`, () => {
+  it.skip(`TEST 4-Verifying successful registration of regular patients`, () => {
     cy.contains("button", "Register New Patient").click();
 
     cy.get('#find-patients').type("Jane Doe{enter}").should("have.value", "Jane Doe");

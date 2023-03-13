@@ -1,4 +1,6 @@
 {
     "projectId": "wwxoju",
-    "watchForFileChanges": false
+    "watchForFileChanges": false,
+    "viewportWidth": 1212,
+    "viewportHeight": 477
 }
