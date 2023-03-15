@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 const { lighthouse, prepareAudit } = require('@cypress-audit/lighthouse')
 
 module.exports = (on, config) => {

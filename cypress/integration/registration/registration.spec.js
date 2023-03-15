@@ -69,7 +69,7 @@ describe("Registration page", () => {
     // cy.contains('Juma John').should('be.visible')
   });
 
-  it.skip(`TEST 4-Verifying successful registration of regular patients`, () => {
+  it(`TEST 4-Verifying successful registration of regular patients`, () => {
     cy.contains("button", "Register New Patient").click();
 
     cy.get('#find-patients').type("Jane Doe{enter}").should("have.value", "Jane Doe");

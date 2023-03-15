@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 /// <reference types="@applitools/eyes-cypress" />
 
+import { firstName, familyName } from './registration.spec.js';
+
+const firstname = firstName;
+const familyname = familyName;
+
+
 describe("User account page", () => {
     beforeEach(() => {
         cy.locations("admin", "Y3z44AH2");
@@ -10,7 +16,7 @@ describe("User account page", () => {
             testName:
                 "Verify that all the labels and controls including text-boxes, buttons, and links are present on the Login page and can be interacted with",
         });
-       
+
     });
 
     afterEach(() => {
@@ -21,24 +27,34 @@ describe("User account page", () => {
 
         cy.get('#selected-location').click();
         cy.get('#sidebarCollapse > .fa').click();
-        cy.get('[locationid="9"]').click({force: true})
+        cy.get('[locationid="9"]').click()
 
-        cy.get(':nth-child(3) > :nth-child(7) > #reassign').click();
+        cy.wait(4000);
 
+
+        cy.contains('td', familyname + ' ' + firstname)  // gives you the cell 
+            .siblings()                            // gives you all the other cells in the row
+            .contains('a', 'Reassign')               // finds the action link
+            .click()
         cy.get('#queueRoomUuid').select('Pharmacy');
         cy.get('#reassignPatient').click();
 
         cy.wait(10000);
 
         cy.get('#selected-location').click();
-        cy.get('[locationid="2"]').click({force: true})
+        cy.get('[locationid="2"]').click()
 
         cy.wait(5000);
 
         // cy.get('#sidebarCollapse > .fa').click();
         cy.wait(2000)
+        cy.get('#sidebarCollapse > .fa').click();
+
         cy.get(':nth-child(5) > .nav_link > .nav_label').click();
-        cy.get(':nth-child(3) > :nth-child(6) > #screen').click();
+        cy.contains('td', familyname + ' ' + firstname)  // gives you the cell 
+            .siblings()                            // gives you all the other cells in the row
+            .contains('a', 'Add prescription')               // finds the action link
+            .click()
 
         cy.wait(2000);
 
@@ -53,17 +69,17 @@ describe("User account page", () => {
 
         cy.get('#btnAddToBasket').click();
 
-        cy.get('#btn-save-orders').click();
+        cy.get('#btn-save-orders').click({force:true});
 
         cy.get(':nth-child(5) > .nav_link > .nav_label').click();
         cy.get(':nth-child(1) > :nth-child(6) > #view').click();
 
         cy.get('.row > .col > .btn').click();
         cy.get('#stockRoomId').select('Pharmacy');
-        
-        
+
+
 
     });
-   
+
 
 })

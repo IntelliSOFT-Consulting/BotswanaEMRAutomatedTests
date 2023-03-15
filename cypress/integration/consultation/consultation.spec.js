@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="@applitools/eyes-cypress" />
 
-import { firstname, familyname } from "./screening.spec";
+import { firstname, familyname } from "../screening/screening.spec";
 
 describe("Consultation page", () => {
     beforeEach(() => {

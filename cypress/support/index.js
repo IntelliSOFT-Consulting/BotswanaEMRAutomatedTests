@@ -1,6 +1,7 @@
 require('cypress-plugin-tab')
 
 import '@applitools/eyes-cypress/commands'
+import '@cypress-audit/lighthouse/commands'
 
 
 // ***********************************************************
