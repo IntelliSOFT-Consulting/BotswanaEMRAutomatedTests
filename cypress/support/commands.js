@@ -1,5 +1,5 @@
 // ***********************************************
-import '@cypress-audit/lighthouse/commands'
+import "@cypress-audit/lighthouse/commands";
 
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -41,7 +41,6 @@ Cypress.Commands.add("locations", (username, password) => {
   cy.get("#username").type(username);
   cy.wait(1000);
   cy.get("#password").type(password);
-  
 
   cy.contains("button", "Sign in").click();
   cy.url().should("contain", "/botswanaemr/selectServicePoint.page");
@@ -56,3 +55,16 @@ Cypress.Commands.add("locations", (username, password) => {
     "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/registrationAdminDashboard.page?appId=botswanaemr.registrationAdminDashboard"
   );
 });
+
+// Access element whose parent is hidden
+Cypress.Commands.add(
+  "isVisible",
+  {
+    prevSubject: true,
+  },
+  (subject) => {
+    const isVisible = (elem) =>
+      !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+    expect(isVisible(subject[0])).to.be.true;
+  }
+);

@@ -1,16 +1,16 @@
 /// <reference types="cypress" />
 
-const { lighthouse, prepareAudit } = require('@cypress-audit/lighthouse')
+const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
 
 module.exports = (on, config) => {
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    prepareAudit(launchOptions)
-  })
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions);
+  });
 
-  on('task', {
+  on("task", {
     lighthouse: lighthouse(), // calling the function is important
-  })
-}
+  });
+};
 
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -32,7 +32,6 @@ module.exports = (on, config) => {
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+};
 
-
-require('@applitools/eyes-cypress')(module);
+require("@applitools/eyes-cypress")(module);

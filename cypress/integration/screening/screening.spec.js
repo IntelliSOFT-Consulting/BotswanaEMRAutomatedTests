@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="@applitools/eyes-cypress" />
 
-import { firstName, familyName } from '../registration/registration.spec.js';
+import { firstName, familyName } from '../registration/emergency-registration.spec.js';
 
 const firstname = firstName;
 const familyname = familyName;
