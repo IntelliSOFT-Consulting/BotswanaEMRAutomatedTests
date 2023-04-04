@@ -107,7 +107,7 @@ Select the Registration folder.
 ### Emergency Patient Registration
 This test will register an emergency patient and verify that the patient has been registered and assigned to the correct service location (Screening).
 
-### 3.3.2 Regular Patient Registration
+### Regular Patient Registration
 This test will register a regular patient and verify that the patient has been registered and assigned to the correct service location (Screening).
 
 
