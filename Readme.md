@@ -91,7 +91,7 @@ This means that the tests can be run in any order and they will still pass.
 ```
 
 
-## AUTHENTICATION- TESTS
+## 1. AUTHENTICATION
 Select the Authentication folder. 
 
 ### Login-test.spec.js
@@ -101,7 +101,7 @@ click on the Login-test.spec.js file to run the test. This test should login to 
 click on the location.spec.js file to run the test. This test should select a facility and service location then verify that the site has accessed the correct facility and service location.
 
 
-## REGISTRATION- TESTS
+## 2. REGISTRATION
 Select the Registration folder.
 
 ### Emergency Patient Registration
@@ -111,21 +111,21 @@ This test will register an emergency patient and verify that the patient has bee
 This test will register a regular patient and verify that the patient has been registered and assigned to the correct service location (Screening).
 
 
-## SCREENING- TESTS
+## 3. SCREENING
 Select the Screening folder.
 
 ### screening.spec.js
 This test will access the screening module and verify that the module has been accessed, then proceed with the screening process for the patient registered in the last test and verify that the patient has been correctly screened, then assigned the patient to the correct service location (Consultation).
 
 
-## CONSULTATION- TESTS
+## 4. CONSULTATION
 Select the Consultation folder.
 
 ### consultation.spec.js
 This test will access the consultation module and verify that the module has been accessed, then proceed with the consultation process for the patient screened in the last test, by beginning a consultation and then verify that the patient has been correctly assesed and diagnosed.The patient should then be assigned the patient to the correct service location, in this case, pharmacy.
 
 
-## PHARMACY- TESTS
+## PHARMACY
 Select the Pharmacy folder.
 
 ### pharmacy.spec.js
@@ -134,41 +134,41 @@ Then the test will prescribe a pre-selected drug to the patient and verify that 
 Then finally, the test will dispense the drug to the patient and verify that the drug has been successfully dispensed to the patient.
 
 
-## STOCK MANAGEMENT- TESTS
+## 5. STOCK MANAGEMENT
 Select the Stock Management folder.
 
 ### stock-management.spec.js
 This test will access the stock management module , then proceed with the normal stock management workflow and test that all forms and functionalities are working as expected.
 
-## HIV TESTING SERVICES (HTS)- TESTS
+## 6. HIV TESTING SERVICES (HTS)
 Select the HIV Testing Services (HTS) folder.
 
 ### hts.spec.js
 This test will access the HIV Testing Services (HTS) module , then proceed with the normal HIV Testing Services (HTS) workflow and test that all forms and saving functionalities are working as expected.
 
 
-## SAFE MALE CIRCUMCISION (SMC)- TESTS
+## 7. SAFE MALE CIRCUMCISION (SMC)
 Select the SMC folder.
 
 ### smc.spec.js
 This test will access the SMC module , then proceed with the normal SMC workflow and test that all forms and saving functionalities are working as expected.
 
 
-## ART- TESTS
+## 8. ART
 Select the ART folder.
 
 ### art.spec.js
 This test will access the ART module , then proceed with the normal ART workflow and test that all forms and saving functionalities are working as expected.
 
 
-## TB- TESTS
+## 9. TB
 Select the TB folder.
 
 ### tb.spec.js
 This test will access the TB module , then proceed with the normal TB workflow and test that all forms and saving functionalities are working as expected.
 
 
-## SEXUAL AND REPRODUCTIVE HEALTH (SRH)- TESTS
+## 10. SEXUAL AND REPRODUCTIVE HEALTH (SRH)
 Select the SRH folder.
 
 ### srh.spec.js
