@@ -116,12 +116,14 @@ describe("Consultation page", () => {
 
         //Vitals
 
-        cy.wait(3000)
+        // cy.wait(3000)
         // Physical Exam
 
-        cy.get('#btnPhysicalExam').scrollIntoView({ easing: 'linear' })
+        // cy.get('#btnPhysicalExam').scrollIntoView({ easing: 'linear' })
         cy.get('#btnPhysicalExam').click();
+        cy.wait(4000)
         cy.get('#physical-exam').type('Patient is in good health');
+        cy.wait(4000)
         cy.get('#btnAddPhysicalExam').click();
 
         cy.wait(5000)

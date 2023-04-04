@@ -57,6 +57,40 @@ This means that the tests can be run in any order and they will still pass.
 ```
 
 
+## File structure
+```
+.
+├── cypress
+│   ├── fixtures // Test fixtures (e.g. attachments)
+│   │   └── test_image.jpeg
+│   ├── integration
+│   │  ├── authentication // Tests for the authentication module
+│   │  |     ├── login-test.spec.js
+│   │  |     └── location.spec.js
+│   │  |
+│   │  ├── consultation // Tests for the consultation module
+│   │  |     └── consultation.spec.js
+│   │  ├── pharmacy // Tests for the pharmacy module
+│   │  |     ├── pharmacy.spec.js
+|   |  |     └── Quick-registration.spec.js
+│   │  |            ...
+│   ├── plugins
+│   │   └── index.js
+│   ├── screenshots // Screenshots (set "screenshot": true in cypress.json)
+│   ├── support
+│   │   ├── commands.js // Custom commands for Cypress
+|   |   ├── eyes-index.d.ts // Custom commands for Cypress (Applitools eyes)
+│   │   └── index.js
+│   ├── videos  // Screen recordings (set "video": true in cypress.json)
+│   └── cypress.json // Cypress configuration file
+├── README.md
+├── cypress.json // Cypress configuration file
+├── package.json
+└── applitools.config.js // Applitools configuration file
+
+```
+
+
 ## AUTHENTICATION-FOLDER TESTS
 Select the Authentication folder. 
 

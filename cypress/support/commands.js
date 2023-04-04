@@ -27,7 +27,7 @@ import "@cypress-audit/lighthouse/commands";
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", (username, password) => {
-  cy.visit("http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs");
+  cy.visit("http://botswanaemrdemo.intellisoftkenya.com/openmrs/login.htm");
   cy.get("#username").type(username);
   cy.get("#password").type(password);
   // cy.get("select").select("Sebele Clinic");
@@ -37,7 +37,7 @@ Cypress.Commands.add("login", (username, password) => {
 });
 
 Cypress.Commands.add("locations", (username, password) => {
-  cy.visit("http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs");
+  cy.visit("http://botswanaemrdemo.intellisoftkenya.com/openmrs/login.htm");
   cy.get("#username").type(username);
   cy.wait(1000);
   cy.get("#password").type(password);
