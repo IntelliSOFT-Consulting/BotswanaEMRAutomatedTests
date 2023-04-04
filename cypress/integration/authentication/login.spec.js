@@ -31,7 +31,7 @@ describe(`The user is able to see the labels and controls including text-boxes, 
     cy.get("#username").type("admin").should("have.value", "admin");
   });
 
-  it(`Test 3-Verifying Password text-box can take text input`, () => {
+  it(`Test 3-Verifying Password text-box can take text input.`, () => {
     cy.get("#password").type("Y3z44AH2").should("have.value", "Y3z44AH2");
   });
 });
