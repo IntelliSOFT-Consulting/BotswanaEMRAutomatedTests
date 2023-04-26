@@ -1,6 +1,6 @@
 module.exports = {
     testConcurrency: 1,
-    apiKey: "4dfo9bRkKmHMr7Vve99JeEhZeV107XMY2avfQkA4a1po3w110",
+    apiKey: "O6O1f102v88Qqaad4JTkVAi6F105NQBB8dfnot42V104JpOPw110",
     browser: [
         // Add browsers with different viewports
         {width: 800, height: 600, name: 'chrome'},

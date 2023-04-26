@@ -18,15 +18,13 @@ describe("User account page", () => {
 
   //********tests-cases*********
 
-  it("TP00-Should actually be accessible", () => {
+  it("TEST 1-Should actually be accessible", () => {
     cy.visit(
       "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/selectServicePoint.page"
     );
   });
 
-  
-
-  it(`TP01-Verifying visibility of the page objects`, () => {
+  it(`TEST 2-Verifying visibility of the page objects`, () => {
     //applitools eyes test
     cy.eyesCheckWindow({
       tag: "TP01-Verifying visibility of the elements on the page",
@@ -35,16 +33,23 @@ describe("User account page", () => {
     });
   });
 
-  it(`TP02-Verifying Location text-box can be selected`, () => {
-    cy.get("#sessionLocationId").select("Registration Desk").should("have.value", "5");
+  it(`TEST 3-Verifying Location text-box can be selected`, () => {
+    cy.get("#sessionLocationId")
+      .select("Registration Desk")
+      .should("have.value", "5");
   });
 
-  it(`TP03-Verify that the user is able to login by entering valid credentials and clicking on the ‘Check in’ button.`, () => {
+  it(`TEST 4-Verify that the user is able to login by entering valid credentials and clicking on the Check in button.`, () => {
     cy.get("#loggedInLocationId").select("Sebele Clinic");
     cy.get("#sessionLocationId").select("Registration Desk");
 
     cy.contains("button", "Check in").click();
 
-    cy.url().should("contain", "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/registrationAdminDashboard.page?appId=botswanaemr.registrationAdminDashboard");
+    cy.url().should(
+      "contain",
+      "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/registrationAdminDashboard.page?appId=botswanaemr.registrationAdminDashboard"
+    );
+
+    // An error occurred while processing your request. (An issue with the applitude package not the site).
   });
 });

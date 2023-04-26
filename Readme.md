@@ -20,7 +20,7 @@ Run this command to install the specific version needed for this project.
 
 
 
-## 2. Fork this repo
+## Fork this repo
 You'll need to fork the project first.
 
 After forking this project in Github, run these commands:
@@ -42,11 +42,11 @@ The npm cypress start script will spawn a new cypress tab which hosts the test s
 ```
 
 
-## 3. Run the tests
+## Run the tests
 The tests are located in the cypress/integration folder. The tests are grouped into folders based on the module they are testing. The tests are also grouped into files based on the functionality they are testing. The tests are also commented to explain what they are testing.
 
 To run each test, access the cypress window that pops up when the ``` npx cypress open ``` command is typed and ran in the terminal.
-Click on the test file and then click on the test you want to run. The test will then run on your browser.
+Click on the test folder and then click on the specific test you want to run. The test will then run on your browser.
 
 ```
 
@@ -56,34 +56,135 @@ This means that the tests can be run in any order and they will still pass.
 
 ```
 
-### 3.1 Login-test.spec.js
-This test will login to the application and verify that the user is logged in.
+
+## File structure
+```
+.
+├── cypress
+│   ├── fixtures // Test fixtures (e.g. attachments)
+│   │   └── test_image.jpeg
+│   ├── integration
+│   │  ├── authentication // Tests for the authentication module
+│   │  |     ├── login-test.spec.js
+│   │  |     └── location.spec.js
+│   │  |
+│   │  ├── consultation // Tests for the consultation module
+│   │  |     └── consultation.spec.js
+│   │  ├── pharmacy // Tests for the pharmacy module
+│   │  |     ├── pharmacy.spec.js
+|   |  |     └── Quick-registration.spec.js
+│   │  |            ...
+│   ├── plugins
+│   │   └── index.js
+│   ├── screenshots // Screenshots (set "screenshot": true in cypress.json)
+│   ├── support
+│   │   ├── commands.js // Custom commands for Cypress
+|   |   ├── eyes-index.d.ts // Custom commands for Cypress (Applitools eyes)
+│   │   └── index.js
+│   ├── videos  // Screen recordings (set "video": true in cypress.json)
+│   └── cypress.json // Cypress configuration file
+├── README.md
+├── cypress.json // Cypress configuration file
+├── package.json
+└── applitools.config.js // Applitools configuration file
+
+```
 
 
-### 3.2 location.spec.js
-This test will select a facility and service location then verify that the site has accessed the correct facility and service location.
+## 1. AUTHENTICATION
+Select the Authentication folder. 
+
+### Login-test.spec.js
+click on the Login-test.spec.js file to run the test. This test should login to the application and verify that the user is logged in.
+
+### location.spec.js
+click on the location.spec.js file to run the test. This test should select a facility and service location then verify that the site has accessed the correct facility and service location.
 
 
-### 3.3 registration.spec.js
-This test will register a patient and verify that the patient has been registered.
+## 2. REGISTRATION
+Select the Registration folder.
 
-#### 3.3.1 Emergency Patient Registration
+### Emergency Patient Registration
 This test will register an emergency patient and verify that the patient has been registered and assigned to the correct service location (Screening).
 
-#### 3.3.2 Regular Patient Registration
+### Regular Patient Registration
 This test will register a regular patient and verify that the patient has been registered and assigned to the correct service location (Screening).
 
-### 3.4 screening.spec.js
+
+## 3. SCREENING
+Select the Screening folder.
+
+### screening.spec.js
 This test will access the screening module and verify that the module has been accessed, then proceed with the screening process for the patient registered in the last test and verify that the patient has been correctly screened, then assigned the patient to the correct service location (Consultation).
 
-### 3.5 consultation.spec.js
+
+## 4. CONSULTATION
+Select the Consultation folder.
+
+### consultation.spec.js
 This test will access the consultation module and verify that the module has been accessed, then proceed with the consultation process for the patient screened in the last test, by beginning a consultation and then verify that the patient has been correctly assesed and diagnosed.The patient should then be assigned the patient to the correct service location, in this case, pharmacy.
 
-### 3.6 pharmacy.spec.js
 
-### 3.7 stock-management.spec.js
+## PHARMACY
+Select the Pharmacy folder.
 
-### 3.8 System-Administration.spec.js
+### pharmacy.spec.js
+This test will access the pharmacy module, then head to the quick registration option then register a patient who is then automatically assigned to the pharmacy module. The test will then verify that the patient has been correctly registered and assigned to the correct service location (Pharmacy).
+Then the test will prescribe a pre-selected drug to the patient and verify that the drug has been successfully prescribed to the patient.
+Then finally, the test will dispense the drug to the patient and verify that the drug has been successfully dispensed to the patient.
+
+
+## 5. STOCK MANAGEMENT
+Select the Stock Management folder.
+
+### stock-management.spec.js
+This test will access the stock management module , then proceed with the normal stock management workflow and test that all forms and functionalities are working as expected.
+
+## 6. HIV TESTING SERVICES (HTS)
+Select the HIV Testing Services (HTS) folder.
+
+### hts.spec.js
+This test will access the HIV Testing Services (HTS) module , then proceed with the normal HIV Testing Services (HTS) workflow and test that all forms and saving functionalities are working as expected.
+
+
+## 7. SAFE MALE CIRCUMCISION (SMC)
+Select the SMC folder.
+
+### smc.spec.js
+This test will access the SMC module , then proceed with the normal SMC workflow and test that all forms and saving functionalities are working as expected.
+
+
+## 8. ART
+Select the ART folder.
+
+### art.spec.js
+This test will access the ART module , then proceed with the normal ART workflow and test that all forms and saving functionalities are working as expected.
+
+
+## 9. TB
+Select the TB folder.
+
+### tb.spec.js
+This test will access the TB module , then proceed with the normal TB workflow and test that all forms and saving functionalities are working as expected.
+
+
+## 10. SEXUAL AND REPRODUCTIVE HEALTH (SRH)
+Select the SRH folder.
+
+### srh.spec.js
+This test will access the SRH module , then proceed with the normal SRH workflow and test that all forms and saving functionalities are working as expected.
+
+
+```
+THE TESTS BELOW APPEAR IN MOST PAGES SO THEY ARE NOT REPEATED IN EACH FOLDER
+
+```
+
+### Reports.spec.js
+This test will access the REPORTS pages in each page and verify that all the required reports are rendered and downloaded as expected.
+
+### System-Administration.spec.js
+This test will access the System-Administration pages and verify that a user can create, edit, delete, activate or deactivate a user account as needed.
 
 
 

@@ -1,7 +1,7 @@
-require('cypress-plugin-tab')
+require("cypress-plugin-tab");
 
-import '@applitools/eyes-cypress/commands'
-
+import "@applitools/eyes-cypress/commands";
+import "@cypress-audit/lighthouse/commands";
 
 // ***********************************************************
 // This example support/index.js is processed and
@@ -19,13 +19,16 @@ import '@applitools/eyes-cypress/commands'
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from failing the test
-    return false
-  })
-  
+Cypress.on("uncaught:exception", (err, runnable) => {
+  // returning false here prevents Cypress from failing the test
+  return false;
+});
+
+Cypress.Keyboard.defaults({
+  keystrokeDelay: 60,
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

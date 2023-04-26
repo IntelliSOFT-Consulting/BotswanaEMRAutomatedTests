@@ -17,5 +17,10 @@ describe("User account page", () => {
         cy.eyesClose();
     });
 
+    it(`TEST 1-Access Stock management page`, () => {
 
-})
+        
+
+    });
+
+});
