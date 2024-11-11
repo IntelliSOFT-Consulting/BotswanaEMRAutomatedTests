@@ -1,6 +1,7 @@
 // ***********************************************
 import "cypress-audit/commands";
 
+
 // This example commands.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
@@ -43,6 +44,7 @@ Cypress.Commands.add("locations", (username, password) => {
   cy.get("#password").type(password);
   
 
+
   cy.contains("button", "Sign in").click();
   cy.url().should("contain", "/botswanaemr/selectServicePoint.page");
 
@@ -56,3 +58,4 @@ Cypress.Commands.add("locations", (username, password) => {
   //   "http://botswanaemrdemo.intellisoftkenya.com:9901/openmrs/botswanaemr/registrationAdminDashboard.page?appId=botswanaemr.registrationAdminDashboard"
   // );
 });
+

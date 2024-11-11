@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:headless": "npx cypress run --spec 'cypress/e2e/consultation.cy.js' --record --key 4f22d811-d7f6-4465-89f2-b0afa5e2abab"
+
   },
   "author": "",
   "license": "ISC",
